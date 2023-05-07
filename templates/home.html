@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Split Screen Layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+	<style>
+		.split {
+			height: 100%;
+			width: 50%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			overflow-x: hidden;
+			padding-top: 20px;
+		}
+
+		.left {
+			left: 0;
+			background-color: white;
+            border-radius: 2%;
+		}
+
+		.right {
+			right: 0;
+			background-color: red;
+		}
+
+		.input-field {
+			display: block;
+			margin: 10px;
+			padding: 10px;
+			width: 80%;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+        form {
+			display: flex;
+			flex-direction: column;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		input[type="text"], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+        input[type="number"], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+        input[type="Date"], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type="button"] {
+			background-color: blue;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type="button"]:hover {
+			background-color: blue;
+		}
+
+        #response{
+            color: black;
+        }
+	</style>
+</head>
+<body>
+
+	<div class="split left">
+		<img src="static/zomato-logo5.jpg" alt="Image" style="width:100%; height:50%; backgroud:black;">
+        <img src="static/zomato-logo.jpg" alt="Image" style="width:100%; height:50%; backgroud:black;">
+	</div>
+
+	<div class="split right">
+        <div class ="Feature" style="text-align:center; margin-top: 2px; margin-bottom: 4px; color: black;">
+            <h2>Zomato Time Prediction</h2>
+        </div>
+        <form>
+            <label for="Delivery_person_Age">Delivery person Age:</label>
+            <input type="text" id="Delivery_person_Age" name="Delivery_person_Age">
+
+            <label for="Delivery_person_Ratings">Delivery person Ratings:</label>
+            <input type="text" id="Delivery_person_Ratings" name="Delivery_person_Ratings">
+
+            <label for="Restaurant_latitude">Restaurant latitude:</label>
+            <input type="text" id="Restaurant_latitude" name="Restaurant_latitude">
+
+            <label for="Restaurant_longitude">Restaurant longitude:</label>
+            <input type="text" id="Restaurant_longitude" name="Restaurant_longitude">
+
+            <label for="Delivery_location_latitude">Delivery location latitude:</label>
+            <input type="text" id="Delivery_location_latitude" name="Delivery_location_latitude">
+
+            <label for="Delivery_location_longitude">Delivery location longitude:</label>
+            <input type="text" id="Delivery_location_longitude" name="Delivery_location_longitude">
+
+            <label for="Weather_conditions">Weather conditions:</label>
+            <select id="Weather_conditions" name="Weather">
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Windy">Windy</option>
+                    <option value="Sandstorms">Sandstorms</option>
+                    <option value="Stormy">Stormy</option>
+                    <option value="Fog">Fog</option>
+            </select>
+
+            <label for="Road_traffic_density">Road traffic density:</label>
+            <select id="Road_traffic_density" name="Road_traffic">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Jam">Jam</option>
+            </select>
+
+            <label for="Vehicle_condition">Vehicle condition:</label>
+            <select id="Vehicle_condition" name="Vehicle">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+            </select>
+
+            <label for="Type_of_order">Type of order:</label>
+            <select id="Type_of_order" name="Type_of_order">
+                    <option value="Drinks">Drinks</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Meal">Meal</option>
+                    <option value="Buffet">Buffet</option>
+            </select>
+
+            <label for="Type_of_vehicle">Type of vehicle:</label>
+            <select id="Type_of_vehicle" name="Type_of_vehicle">
+                    <option value="electric_scooter">electric_scooter</option>
+                    <option value="scooter">scooter</option>
+                    <option value="motorcycle">motorcycle</option>
+            </select>
+
+            <label for="multiple_deliveries">multiple deliveries:</label>
+            <select id="multiple_deliveries" name="multiple_deliveries">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+            </select>
+
+            <label for="Festival">Festival:</label>
+            <select id="Festival" name="Festival">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+            </select>
+            
+            <label for="City">City:</label>
+            <select id="City" name="City">
+                    <option value="Semi-Urban">Semi-Urban</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Metropolitian">Metropolitian</option>
+            </select>
+
+            <label for="Time_Diff">Time Diff:</label>
+            <input type="number" id="Time_Diff" name="Time_Diff">
+            <span>Its diffrence about your order placed and your order picked by the person</span>
+
+            <input type="button" id="submitform" value="Submit">
+        </form>
+        <div id="response" hidden>
+
+        </div>
+	</div>
+    <script>
+            $(document).ready(function() {
+                $(document).on('click', '#submitform', function(){
+                    $('#response').empty()
+                    var Delivery_person_Age = $('#Delivery_person_Age').val()
+                    var Delivery_person_Ratings = $('#Delivery_person_Ratings').val()
+                    var Restaurant_latitude = $('#Restaurant_latitude').val()
+                    var Restaurant_longitude = $('#Restaurant_longitude').val()
+                    var Delivery_location_latitude = $('#Delivery_location_latitude').val()
+                    var Delivery_location_longitude = $('#Delivery_location_longitude').val()
+                    var Weather_conditions = $('#Weather_conditions').val()
+                    var Road_traffic_density = $('#Road_traffic_density').val()
+                    var Vehicle_condition = $('#Vehicle_condition').val()
+                    var Type_of_order = $('#Type_of_order').val()
+                    var Type_of_vehicle = $('#Type_of_vehicle').val()
+                    var multiple_deliveries = $('#multiple_deliveries').val()
+                    var Festival = $('#Festival').val()
+                    var City = $('#City').val()
+                    var Time_Diff = $('#Time_Diff').val()
+                    var Order_Date = $('#Order_Date').val()
+                    var res = {
+                        "Delivery_person_Age": Delivery_person_Age,
+                        "Delivery_person_Ratings": Delivery_person_Ratings,
+                        "Restaurant_latitude": Restaurant_latitude,
+                        "Restaurant_longitude": Restaurant_longitude,
+                        "Delivery_location_latitude": Delivery_location_latitude,
+                        "Delivery_location_longitude": Delivery_location_longitude,
+                        "Weather_conditions": Weather_conditions,
+                        "Road_traffic_density": Road_traffic_density,
+                        "Vehicle_condition": Vehicle_condition,
+                        "Type_of_order": Type_of_order,
+                        "Type_of_vehicle": Type_of_vehicle,
+                        "multiple_deliveries": multiple_deliveries,
+                        "Festival": Festival,
+                        "City": City,
+                        "Time_Diff": Time_Diff,
+                        "Order_Date": Order_Date
+                    }
+                    $.ajax({
+                        data: JSON.stringify(res),
+                        contentType: "application/json",
+                        type: 'POST',
+                        url: '/predict',
+                        success: function(response) {
+                            console.log(response)
+                            str1 = `
+                            <h2>Hye sir your order will deliver in ${response['result']} min</h2>
+                            `
+                            $("#response").append(str1);
+                            $('#response').show()
+                        }
+                    });
+                });
+            });       
+    </script>
+</body>
+</html>
